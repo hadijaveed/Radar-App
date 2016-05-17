@@ -1,0 +1,11 @@
+{
+  "name": "radarApp",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "index.js": "0.0.3",
+    "meteor-node-stubs": "^0.2.3"
+  }
+}

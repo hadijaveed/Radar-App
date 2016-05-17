@@ -1,0 +1,38 @@
+.ui.center.aligned.container(style='margin-top: 40px;')
+  h1.ui.header Add Event Here
+  .ui.form
+    .field
+      input(type='text', name='location', placeholder='Search Location Here')
+  br 
+  #gmap(style= 'height: 400px; width: 100%;')
+  br
+    
+.ui.container
+  .ui.segment  
+    h2.ui.header Add Event Info
+    .ui.form
+      .field
+        label Event Title
+        input(type='text', name='event_name', placeholder='Enter Title')
+      .field
+        label Add keywords
+        .ui.fluid.multiple.search.selection.dropdown
+          input(name='keywords', type='hidden', placeholder='Add Keywords')
+          i.dropdown.icon
+          .default.text
+          .menu 
+          
+      .field
+        label Description
+        textarea(type='text', name='Description', placeholder='Add event description here')
+     
+      .field
+        label Add Images
+        button.ui.blue.button(name='addImages') Add Images
+        .image.preview.template(style="display: none;")
+          .image.preview
+            img(data-dz-thumbnail)
+            a(href="", data-dz-remove)
+              i.remove.huge.icon  
+        #imageDrop(style="height: 200px; width: 100%; border: 1px dashed black;")
+      button.ui.large.blue.button(type='submit', name="addEvent") Add Event

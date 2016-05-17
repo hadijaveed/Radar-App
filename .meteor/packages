@@ -1,0 +1,62 @@
+# Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+meteor-base             # Packages every Meteor app needs to have
+mobile-experience       # Packages for a great mobile UX
+mongo                   # The database Meteor supports right now
+session                 # Client-side reactive dictionary for your app
+jquery                  # Helpful client-side library
+tracker                 # Meteor's client-side reactive programming library
+
+es5-shim                # ECMAScript 5 compatibility for older browsers.
+ecmascript              # Enable ECMAScript2015+ syntax in app code
+
+templating
+
+mquandalle:jade
+semantic:ui
+flemay:less-autoprefixer
+jagi:astronomy
+service-configuration
+momentjs:moment
+dburles:google-maps
+jeremy:geocomplete
+reactive-var
+reactive-dict
+accounts-password
+
+mnmtanish:call
+jesty:polyline
+cfs:standard-packages
+cfs:filesystem
+ostrio:meteor-root
+kadira:flow-router
+arillo:flow-router-helpers
+kadira:blaze-layout
+lookback:body-class
+check
+jagi:astronomy-relations
+http
+jagi:astronomy-timestamp-behavior
+u2622:persistent-session
+
+
+
+underscore
+zimme:active-route
+tomwasd:flow-router-autoscroll
+email
+suxez:jquery-serialize-object
+
+timbrandin:slick
+
+standard-minifier-css
+standard-minifier-js
+simple:rest
+simple:json-routes
+random
+accounts-facebook
+stevezhu:fbgraph

@@ -1,0 +1,43 @@
+.ui.two.column.stackable.grid
+  .column
+    .ui.vertical.segment
+      .ui.center.aligned.container
+        .ui.form
+          .field
+            label Select Radius
+            select.ui.dropdown
+              option(value='1' selected) 1 Km
+              option(value='10') 10 Km
+              option(value='30') 30 Km
+              option(value='50') 50 Km
+              option(value='100') 100 Km
+          .field
+            label Select Location
+            input(name='location', type='text', placeholder='Current Location')
+      br
+      br
+      br
+      .ui.two.stackable.cards
+        each events
+          .link.card
+            .image
+              img(src='{{cover_url}}')
+            .content
+              a.header {{event_name}}
+              .meta
+                span.date {{venue}}
+              .description
+                | Kristy is an art director living in New York.
+            .extra.content
+              a
+                i.user.icon
+                | {{attending}} People Attending
+      .dummy(style="height: 100px; ")
+          
+  .column.makeFixed
+    #gmap
+      
+if subscriptionsNotReady
+  .ui.active.text.loader Loading Events ...
+  
+

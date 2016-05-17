@@ -1,0 +1,22 @@
+.ui.fixed.menu
+  a.header.item(href="{{pathFor '/'}}", class="{{isActiveRoute 'homePage'}}")
+    | Radar App
+  a.item(href="{{pathFor '/add_event'}}", class="{{isActiveRoute 'add_event'}}")
+    | Add Events  
+  a.item(href="{{pathFor '/follow_events'}}", class="{{isActiveRoute 'follow_events'}}")
+    | Follow Events
+  a.item
+    | Profile
+  .right.menu
+    .ui.labeled.button(tabindex='0')
+      .ui.blue.button
+        i.alarm.icon
+        |  Notification
+      a.ui.basic.blue.left.pointing.label
+        | 1,048
+      
+    a.item
+      | Logout
+
+
++Template.dynamic template=template
