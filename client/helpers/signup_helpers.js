@@ -9,7 +9,7 @@ Template.login.events({
         throw new Meteor.Error('Login Failed');
       } else {
         navigator.geolocation.getCurrentPosition(function(pos) {
-          Meteor.call('addUserCurrentLocation', 71.3373519, 30.1858802, function() {
+          Meteor.call('addUserCurrentLocation', pos.coords.longitude, pos.coords.latitude, function() {
             FlowRouter.go('/home');
           });
         }, function(err) {
