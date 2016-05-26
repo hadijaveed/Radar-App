@@ -1,0 +1,1 @@
+db.users.ensureIndex({ 'profile.loc': '2dsphere' })
