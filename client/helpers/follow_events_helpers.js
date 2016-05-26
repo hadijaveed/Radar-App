@@ -106,7 +106,7 @@ Template.follow_events.onRendered(function() {
   
   $.get('http://ipinfo.io', function(response) {
     console.log('check city ', response.city);
-    self.locationObj.set('city', 'Multan');
+    self.locationObj.set('city', 'Lahore');
   }, 'jsonp');
 
   self.$('.ui.dropdown').dropdown({
