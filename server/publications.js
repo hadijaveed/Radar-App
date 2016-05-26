@@ -15,7 +15,7 @@ Meteor.publish('events', function(lng, lat, radius) {
 
 Meteor.publish('fbEvents', function(lng, lat, radius) {
   console.log(lng, lat, radius);
-  return [FbEvent.find({
+  return [Event.find({
     loc: {
       $near: {
         $geometry: {
@@ -26,6 +26,13 @@ Meteor.publish('fbEvents', function(lng, lat, radius) {
       }
     }
   })];
+});
+
+Meteor.publish('userNotifications', function() {
+  if (!this.userId) return [];
+  return [
+    Notification.find({ users_nearby: this.userId })
+  ];
 });
 
 

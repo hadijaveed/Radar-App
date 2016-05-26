@@ -11,9 +11,9 @@
     .ui.labeled.button(tabindex='0')
       .ui.blue.button
         i.alarm.icon
-        |  Notification
-      a.ui.basic.blue.left.pointing.label
-        | 1,048
+        |  Notifications
+      a.ui.basic.blue.left.pointing.label(href="{{pathFor '/'}}")
+        | {{notifications}}
       
     a.item
       | Logout

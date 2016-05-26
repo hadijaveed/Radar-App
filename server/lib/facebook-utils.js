@@ -4,7 +4,7 @@ getEvents = function(queryObj, city, cb) {
         FBGraph.get(query, function(err, res) {
           if (err) return cb && cb(err);
           _.each(res.data, (r) => {
-            if (r.place && r.place.location && r.place.location.city && r.place.location.city === city)
+            if (r.place && r.place.location)
               eventsIds.push(r.id);
           });
           if (res.paging && res.paging.next) {

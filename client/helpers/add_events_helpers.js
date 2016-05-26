@@ -76,13 +76,13 @@ Template.add_event.events({
         type: 'Point',
         coordinates: [tpl.locationStuff.get('lng'), tpl.locationStuff.get('lat')]
       },
-      location_name: $('[name="location"]').val(),
-      event_title: $('[name="event_name"]').val(),
+      venue: $('[name="location"]').val(),
+      event_name: $('[name="event_name"]').val(),
       event_description: $('[name="Description"]').val(),
       keywords: $('[name="keywords"]').val()
     };
     Meteor.call('addEvent', eventObj, function() {
-      FlowRouter.go('/follow_events')
+      FlowRouter.go('/follow_events');
     });
   }
 });

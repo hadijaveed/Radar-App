@@ -17,7 +17,7 @@ Template.follow_events.onCreated(function() {
       
     self.subscribe('fbEvents', self.locationObj.get('lng'), self.locationObj.get('lat'), self.locationObj.get('radius'));
     if (self.subscriptionsReady() && GoogleMaps.loaded()) {
-      let events = FbEvent.find().fetch();
+      let events = Event.find().fetch();
       if (self.markers.length) {
         _.each(self.markers, (marker) => {
           marker.setMap(null);
@@ -75,7 +75,7 @@ Template.follow_events.onCreated(function() {
 
 Template.follow_events.helpers({
   events() {
-    return FbEvent.find();
+    return Event.find();
   },
   
   subscriptionsNotReady() {
@@ -96,13 +96,17 @@ Template.follow_events.onRendered(function() {
   });
   
   navigator.geolocation.getCurrentPosition(function(pos) {
+    console.log('look position here ', pos);
     self.locationObj.set('lat', pos.coords.latitude);
     self.locationObj.set('lng', pos.coords.longitude);
-  });
+  }, function(err) {
+    if (err)
+      console.error(err);
+  }, { maximumAge:Infinity, timeout: 10000 });
   
   $.get('http://ipinfo.io', function(response) {
     console.log('check city ', response.city);
-    self.locationObj.set('city', 'Lahore');
+    self.locationObj.set('city', 'Multan');
   }, 'jsonp');
 
   self.$('.ui.dropdown').dropdown({
@@ -117,7 +121,6 @@ Template.follow_events.onRendered(function() {
       if (radius === 100) self.locationObj.set('zoom', 8);
     }
   });
-
 });
 
 Template.follow_events.events({

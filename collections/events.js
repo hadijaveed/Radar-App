@@ -4,13 +4,23 @@ Event = Astro.Class({
   name: 'Event',
   collection: Events,
   fields: {
-    posted_by: { type: 'string' },
+    event_id: { type: 'string', default: '' },
+    cover_url: { type: 'string', default: '' },
     loc: { type: 'object', index: '2dsphere', default() { return {}; } },
-    location_name: { type: 'string' },
-    event_title: { type: 'string'},
+    city: { type: 'string', default: '' },
+    venue: { type: 'string', default: '' },
+    zipCode: { type: 'number', default: 0 },
+    event_name: { type: 'string' },
     event_description: { type: 'string' },
+    type: { type: 'string', default: ''},
+    declined_count: { type: 'number', default: 0 },
+    attending: { type: 'number', default: 0 },
+    maybe_count: { type: 'number', default: 0 },
+    start_time: { type: 'date', default() { return []; } },
+    end_time: { type: 'date', default() { return []; } },
     event_images: { type: 'array', default() { return []; }},
-    keywords: { type: 'array'}
+    keywords: { type: 'array', default() { return []; }},
+    posted_by: { type: 'string', default: '' }
   },
   
   behaviors: {
@@ -23,3 +33,4 @@ Event = Astro.Class({
   }
 
 });
+

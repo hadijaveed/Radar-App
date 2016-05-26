@@ -4,11 +4,17 @@ Template.login.onCreated(function() {
 
 Template.login.events({
   'click [name="loginWithFacebook"]'(e, tpl) {
-    Meteor.loginWithFacebook({}, (err) => {
+    Meteor.loginWithFacebook({}, (err, u) => {
       if (err) {
         throw new Meteor.Error('Login Failed');
       } else {
-        FlowRouter.go('/home');
+        navigator.geolocation.getCurrentPosition(function(pos) {
+          Meteor.call('addUserCurrentLocation', 71.3373519, 30.1858802, function() {
+            FlowRouter.go('/home');
+          });
+        }, function(err) {
+          if (err) console.error(err);
+        }, { maximumAge:Infinity, timeout: 10000 });
       }
     });
   }
@@ -16,7 +22,15 @@ Template.login.events({
 
 Template.home.onCreated(function() {
   if (!Meteor.userId()) FlowRouter.go('/');
+  this.subscribe('userNotifications');
 });
+
+Template.home.helpers({
+  notifications() {
+    return Notification.find({ is_read: false }).count();
+  }
+});
+
 
 Template.signup.events({
   'submit [name="signupForm"]'(e, tpl) {

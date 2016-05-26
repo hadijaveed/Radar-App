@@ -1,0 +1,19 @@
+.ui.center.aligned.container(style='margin-top: 60px;')
+  .ui.two.column.stackable.grid
+    .column
+      h3.ui.top.attached.header Notifications
+      .ui.attached.segment
+        .ui.items
+          each notifications
+            .item
+              .image
+                img(src='{{cover_url}}')
+              .content
+                a.header(name='eventTitle') {{event_title}}
+                .meta
+                  span {{location_venue}}
+        
+    
+    .column
+      h3.ui.top.attached.header Events you are following
+      .ui.attached.segment
